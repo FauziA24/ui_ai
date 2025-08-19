@@ -17,3 +17,12 @@ export default function App() {
     </div>
   );
 }
+
+        //   <main className="main">
+        //    <Routes> 
+        //      <Route path="/" element={<ChatPage deps={deps} />} />
+        //      <Route path="/settings" element={<SettingPage />} />
+        //      {/* Add more routes as needed */}
+        //      <Route path="*" element={<div className="p-6">Not found</div>} />
+        //    </Routes>
+        //  </main> 

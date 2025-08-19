@@ -1,128 +1,271 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Removed unsupported @custom-variant dark (&:is(.dark *)); */
-
-:root {
-  /* Updated color tokens to match logistics theme with emerald primary and clean neutrals */
-  --background: oklch(1 0 0); /* Pure white background */
-  --foreground: oklch(0.278 0 0); /* Dark gray for text (#374151) */
-  --card: oklch(0.961 0 0); /* Light gray for cards (#f1f5f9) */
-  --card-foreground: oklch(0.278 0 0); /* Dark gray text on cards */
-  --popover: oklch(1 0 0); /* White popover background */
-  --popover-foreground: oklch(0.278 0 0); /* Dark gray popover text */
-  --primary: oklch(0.459 0.136 166.11); /* Emerald primary (#059669) */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.588 0.148 162.68); /* Emerald accent (#10b981) */
-  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
-  --muted: oklch(0.961 0 0); /* Light gray muted (#f1f5f9) */
-  --muted-foreground: oklch(0.471 0 0); /* Medium gray muted text (#6b7280) */
-  --accent: oklch(0.588 0.148 162.68); /* Emerald accent (#10b981) */
-  --accent-foreground: oklch(1 0 0); /* White text on accent */
-  --destructive: oklch(0.577 0.245 27.325); /* Red for errors */
-  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
-  --border: oklch(0.922 0 0); /* Light border (#e5e7eb) */
-  --input: oklch(1 0 0); /* White input background */
-  --ring: oklch(0.459 0.136 166.11 / 0.5); /* Emerald focus ring with opacity */
-  --chart-1: oklch(0.459 0.136 166.11); /* Emerald chart color */
-  --chart-2: oklch(0.588 0.148 162.68); /* Emerald accent chart color */
-  --chart-3: oklch(0.961 0 0); /* Light gray chart color */
-  --chart-4: oklch(0.278 0 0); /* Dark gray chart color */
-  --chart-5: oklch(0.577 0.245 27.325); /* Red chart color */
-  --radius: 0.5rem; /* 8px border radius */
-  --sidebar: oklch(0.961 0 0); /* Light gray sidebar */
-  --sidebar-foreground: oklch(0.278 0 0); /* Dark gray sidebar text */
-  --sidebar-primary: oklch(0.459 0.136 166.11); /* Emerald sidebar primary */
-  --sidebar-primary-foreground: oklch(1 0 0); /* White sidebar primary text */
-  --sidebar-accent: oklch(0.588 0.148 162.68); /* Emerald sidebar accent */
-  --sidebar-accent-foreground: oklch(1 0 0); /* White sidebar accent text */
-  --sidebar-border: oklch(0.922 0 0); /* Light sidebar border */
-  --sidebar-ring: oklch(0.459 0.136 166.11 / 0.5); /* Emerald sidebar focus ring */
-}
-
-.dark {
-  /* Updated dark mode tokens to maintain logistics theme consistency */
-  --background: oklch(0.145 0 0); /* Dark background */
-  --foreground: oklch(0.985 0 0); /* Light text */
-  --card: oklch(0.205 0 0); /* Dark card background */
-  --card-foreground: oklch(0.985 0 0); /* Light card text */
-  --popover: oklch(0.205 0 0); /* Dark popover */
-  --popover-foreground: oklch(0.985 0 0); /* Light popover text */
-  --primary: oklch(0.588 0.148 162.68); /* Brighter emerald for dark mode */
-  --primary-foreground: oklch(0.145 0 0); /* Dark text on primary */
-  --secondary: oklch(0.459 0.136 166.11); /* Darker emerald secondary */
-  --secondary-foreground: oklch(0.985 0 0); /* Light text on secondary */
-  --muted: oklch(0.269 0 0); /* Dark muted background */
-  --muted-foreground: oklch(0.708 0 0); /* Light muted text */
-  --accent: oklch(0.588 0.148 162.68); /* Bright emerald accent */
-  --accent-foreground: oklch(0.145 0 0); /* Dark text on accent */
-  --destructive: oklch(0.577 0.245 27.325); /* Red destructive */
-  --destructive-foreground: oklch(0.985 0 0); /* Light destructive text */
-  --border: oklch(0.269 0 0); /* Dark border */
-  --input: oklch(0.269 0 0); /* Dark input background */
-  --ring: oklch(0.588 0.148 162.68 / 0.5); /* Emerald focus ring */
-  --chart-1: oklch(0.588 0.148 162.68); /* Bright emerald chart */
-  --chart-2: oklch(0.459 0.136 166.11); /* Dark emerald chart */
-  --chart-3: oklch(0.269 0 0); /* Dark gray chart */
-  --chart-4: oklch(0.985 0 0); /* Light chart color */
-  --chart-5: oklch(0.577 0.245 27.325); /* Red chart color */
-  --sidebar: oklch(0.205 0 0); /* Dark sidebar */
-  --sidebar-foreground: oklch(0.985 0 0); /* Light sidebar text */
-  --sidebar-primary: oklch(0.588 0.148 162.68); /* Bright emerald sidebar primary */
-  --sidebar-primary-foreground: oklch(0.145 0 0); /* Dark sidebar primary text */
-  --sidebar-accent: oklch(0.459 0.136 166.11); /* Dark emerald sidebar accent */
-  --sidebar-accent-foreground: oklch(0.985 0 0); /* Light sidebar accent text */
-  --sidebar-border: oklch(0.269 0 0); /* Dark sidebar border */
-  --sidebar-ring: oklch(0.588 0.148 162.68 / 0.5); /* Emerald sidebar focus ring */
-}
-
-:root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
+/* ---------- Base Setup ---------- */
 @layer base {
-  * {
-    border-color: var(--border);
+  * { border-color: var(--border); }
+  :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
   }
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+:root { color-scheme: light dark; }
+
+/* ---------- Color Theme ---------- */
+:root {
+  --color-background: #F8F9FA;
+  --color-foreground: #0F172A;
+  --color-card: #ffffff;
+  --color-border: #E5E7EB;
+  --color-popover: #ffffff;
+  --color-primary: #3A9542; /* Hijau yang kamu minta */
+  --color-muted: #F1F3F5;
+  --color-muted-foreground: #6B7280;
+  --color-error: #CE0E2D; /* Merah */
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #0F172A;
+  --radius: 12px;
+
+  /* Bubbles */
+  --color-msg-user: #ffffff;
+  --color-msg-assistant: #F3F4F6;
+}
+
+
+.dark {
+  --color-background: #343541;
+  --color-foreground: #ececf1;
+  --color-card: #444654;
+  --color-border: #565869;
+  --color-popover: #202123;
+  --color-ring: #10a37f;
+  --color-primary: #10a37f;
+  --color-primary-foreground: #ffffff;
+  --color-muted: #2a2b32;
+  --color-muted-foreground: #a1a1aa;
+  --color-error: #f87171;
+  --color-sidebar: #202123;
+  --color-sidebar-foreground: #ececf1;
+
+  --color-msg-user: #343541;
+  --color-msg-assistant: #444654;
+}
+
+/* ---------- Layout ---------- */
+.app {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: sticky; top: 0;
+  display: flex; flex-direction: column;
+  background: color-mix(in oklab, var(--color-background) 92%, #000 0%);
+  color: #fff;
+  border-right: 1px solid color-mix(in oklab, #fff 8%, transparent);
+  padding: 20px 18px;
+  min-height: 100dvh;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.brand .logo {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.brand .logo div {
+  background: #000;
+  border-radius: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.nav {
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.button {
+  appearance: none;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  font-weight: 600;
+  background: transparent;
+  color: var(--color-sidebar-foreground);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.button.primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: none;
+}
+
+.button.primary:hover {
+  filter: brightness(1.05);
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 18px;
+  background: var(--color-popover);
+  color: var(--color-foreground);
+  border-bottom: 1px solid var(--color-border);
+}
+.topbar .title { font-weight: 800; letter-spacing: .3px; }
+.badge {
+  padding: 6px 10px; border-radius: 999px;
+  background: var(--red); color: #fff; font-weight: 800;
+}
+.badge {
+  background: var(--color-error);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* ---------- Chat Layout ---------- */
+.chat {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--color-background);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 100px; /* ruang untuk input bar */
+}
+
+
+/* Message bubbles */
+.msg {
+  max-width: 80%;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+}
+.msg.user {
+  align-self: end;
+  background: var(--color-msg-user);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  border-bottom-right-radius: 4px;
+}
+.msg.assistant {
+  align-self: start;
+  background: var(--color-msg-assistant);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  border-bottom-left-radius: 4px;
+}
+.msg.error {
+  align-self: start;
+  background: var(--color-error);
+  color: white;
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  padding: 20px;
+}
+
+/* ---------- Input Area ---------- */
+.inputBar {
+  position: fixed;
+  bottom: 0;
+  background: var(--color-sidebar);
+  padding: 12px clamp(12px, 2vw, 18px);
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  z-index: 10;
+}
+
+
+.textarea {
+  resize: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-msg-user);
+  color: var(--color-foreground);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  min-height: 42px;
+}
+.button.send {
+  background: var(--color-primary);
+  color: white;
+  padding-inline: 16px;
+  font-weight: 700;
+  border-radius: var(--radius);
+  border: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .app {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+  .brand span {
+    display: none;
+  }
+  .sidebar {
+    padding: 12px 10px;
+  }
+  .button {
+    font-size: 13px;
+  }
+}
+@media (max-width: 640px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .topbar {
+    padding: 10px 14px;
+  }
+  .msg {
+    max-width: 92%;
   }
 }
