@@ -1,19 +1,19 @@
 import React from "react";
+import { X } from "lucide-react";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onToggle }) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
+      {/* Close icon for mobile */}
+      <div className="sidebar-close-mobile">
+        <X size={20} onClick={onToggle} />
+      </div>
+
       <div className="brand" aria-label="LogistiChat brand">
         <div className="logo" aria-hidden>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div key={i}></div>
+          ))}
         </div>
         <span>LogistiChat</span>
       </div>
