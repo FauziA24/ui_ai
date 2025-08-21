@@ -5,12 +5,12 @@ export default function Sidebar({ isOpen}) {
   return (
     <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="brand" aria-label="LogistiChat brand">
-        <div className="logo" aria-hidden>
+        {/* <div className="logo" aria-hidden>
           {Array.from({ length: 9 }).map((_, i) => (
             <div key={i}></div>
           ))}
-        </div>
-        <span>LogistiChat</span>
+        </div> */}
+        <span>pecut ai</span>
       </div>
 
       <nav className="nav">

@@ -15,7 +15,7 @@ export default function MessageInput({ value, onChange, onSend, disabled }) {
       <textarea
         ref={ref}
         className="textarea"
-        placeholder="Ask anything about freight, routing, or general queries..."
+        placeholder="Takono pesanmu..."
         rows={1}
         value={value}
         onChange={(e) => onChange(e.target.value)}
