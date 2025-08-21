@@ -22,7 +22,7 @@ export default function MessageInput({ value, onChange, onSend, disabled }) {
         onKeyDown={handleKeyDown}
         disabled={disabled}
       />
-      <button className="button primary" onClick={onSend} disabled={disabled}>
+      <button className="button send" onClick={onSend} disabled={disabled}>
         Send
       </button>
     </div>
