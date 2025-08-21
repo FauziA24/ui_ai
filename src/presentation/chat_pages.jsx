@@ -1,8 +1,9 @@
-import React, { useMemo, useRef, useState } from "react";
-import ChatMessage from "../../components/chat_message.jsx";
-import MessageInput from "../../components/message_input.jsx";
-import { ROLES, createMessage } from "../../helpers/entities.js";
-import { sendMessage } from "../../helpers/send_message.js";
+// import React, { useMemo, useRef, useState, useEffect, useCallback } from "react";
+import React, { useMemo, useState } from "react";
+import MessageInput from "../components/message_input.jsx"; 
+import Messages from "../helpers/messages.jsx";         
+import { ROLES, createMessage } from "../helpers/entities.js";
+import { sendMessage } from "../helpers/send_message.js";
 
 export default function ChatPage({ deps }) {
   const [messages, setMessages] = useState([
@@ -14,13 +15,9 @@ export default function ChatPage({ deps }) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const usecase = useMemo(
-    () => sendMessage(deps.chatGateway),
-    [deps.chatGateway]
-  );
-  const scrollRef = useRef(null);
+  const usecase = useMemo(() => sendMessage(deps.chatGateway), [deps.chatGateway]);
 
-  const history = useMemo(
+  const history = React.useMemo(
     () => messages.map(({ role, content }) => ({ role, content })),
     [messages]
   );
@@ -39,25 +36,16 @@ export default function ChatPage({ deps }) {
       const aiMsg = createMessage(ROLES.assistant, reply.content);
       setMessages((m) => [...m, aiMsg]);
     } catch (e) {
-      const err = createMessage(ROLES.assistant, `❌ Error: ${e.message}`);
+      const err = createMessage(ROLES.assistant, `Error: ${e.message}`);
       setMessages((m) => [...m, err]);
     } finally {
       setLoading(false);
-      // auto-scroll
-      requestAnimationFrame(() => {
-        if (scrollRef.current)
-          scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-      });
     }
   };
 
   return (
     <section className="chat">
-      <div className="messages" ref={scrollRef}>
-        {messages.map((m) => (
-          <ChatMessage key={m.id} role={m.role} content={m.content} />
-        ))}
-      </div>
+      <Messages items={messages} />
       <MessageInput
         value={input}
         onChange={setInput}

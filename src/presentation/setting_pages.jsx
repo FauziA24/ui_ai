@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Section from "../../components/section.jsx";
-import Button from "../../components/button.jsx";
-import Switch from "../../components/switch.jsx";
-import Select from "../../components/select.jsx";
-import { useTheme } from "../../app/theme.jsx";
+import Section from "../components/section.jsx";
+import Button from "../components/button.jsx";
+import Switch from "../components/switch.jsx";
+import Select from "../components/select.jsx";
+import { useTheme } from "../app/theme.jsx";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TopBar from "./components/topbar.jsx";
 import Sidebar from "./components/sidebar.jsx";
-import ChatPage from "./presentation/pages/chat_pages.jsx";
+import ChatPage from "./presentation/chat_pages.jsx";
 import { makeDependencies } from "./app/index.js";
 
 const deps = makeDependencies();

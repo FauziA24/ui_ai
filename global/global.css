@@ -64,7 +64,6 @@
 }
 
 .main {
-  /* HAPUS margin-left: 300px; */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -75,7 +74,7 @@
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100vh;                 /* penuh & presisi */
+  height: 100vh;                 
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -87,7 +86,7 @@
   transition: transform .25s ease;
   z-index: 30;
 }
-.sidebar.closed { transform: translateX(-100%); } /* sembunyi saat mobile */
+.sidebar.closed { transform: translateX(-100%); } 
 .sidebar.open   { transform: translateX(0); }
 
 .brand {
@@ -167,50 +166,61 @@
 .badge { background: var(--color-error); color: #fff; padding: 6px 10px; border-radius: 999px; font-weight: 700; }
 
 /* ---------- Chat Layout ---------- */
-/* .chat {
-  display: flex; flex-direction: column;
-  height: 100%;
-  background: var(--color-background);
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 0;
 }
 
 .messages {
-  flex: 1;
-  overflow-y: auto;
+  flex: 1;                 /* ambil sisa tinggi */
+  min-height: 0;
+  overflow-y: auto;        /* bisa discroll */
   padding: 16px 18px;
-  padding-bottom: 120px; 
-} */
-
-.chat { display: flex; flex-direction: column; height: 100%; }
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px 18px;
-  padding-bottom: 120px;  
-  scroll-behavior: smooth; 
-} 
-
+  padding-bottom: 120px;   /* ruang buat input bar */
+  scroll-behavior: smooth; /* scroll halus */
+}
 
 /* Message bubbles */
-.msg {
+/* .msg {
   max-width: 80%;
   line-height: 1.5;
   padding: 12px 14px;
   border-radius: var(--radius);
+} */
+
+.msg{
+  max-width: 80%;
+  line-height:1.5;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--color-border);
+  background: var(--color-msg-assistant);
+  color: var(--color-foreground);
+  margin: 6px 0;
 }
+
+/* chat User */
 .msg.user {
-  align-self: end;
+  /* align-self: end; */
+  align-self:flex-end;
   background: var(--color-msg-user);
   border: 1px solid var(--color-border);
   color: var(--color-foreground);
   border-bottom-right-radius: 4px;
 }
+
+/* chat AI */
 .msg.assistant {
-  align-self: start;
+  /* align-self: start; */
+  align-self:flex-start;
   background: var(--color-msg-assistant);
   border: 1px solid var(--color-border);
   color: var(--color-foreground);
   border-bottom-left-radius: 4px;
 }
+
 .msg.error {
   align-self: start;
   background: var(--color-error);
@@ -224,23 +234,21 @@
   padding: 20px;
 }
 
-/* ---------- Input Area ---------- */
-/* .inputBar {
+/* ---------- Scroll ---------- */
+.scroll-latest{
   position: sticky;
-  bottom: 0;                     
-  margin: 12px 18px 18px;
-  padding: 10px;
-  background: var(--color-card); 
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  display: flex;                
-  align-items: flex-end;
-  gap: 10px;
-  z-index: 25;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  bottom: 130px;               /* di atas input bar */
+  margin-left: auto;
+  background: var(--color-primary);
+  color:#fff;
+  border:none;
+  border-radius:999px;
+  padding:6px 10px;
+  font-weight:700;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
-*/
 
+/* ---------- Input Area ---------- */
 .inputBar {
   position: sticky;
   bottom: 10px; 
@@ -258,7 +266,8 @@
 
 .textarea {
   resize: none;
-  border: 1px solid var(--color-border);
+  /* border: 1px solid var(--color-border); */
+  border: none;
   background: var(--color-msg-user);
   color: var(--color-foreground);
   padding: 12px 14px;
@@ -267,7 +276,8 @@
 }
 
 .textarea:focus {
-  border-color: black;
+  /* border-color: black; */
+  border-color: none;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.2);
 }
 
