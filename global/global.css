@@ -96,8 +96,14 @@
 .brand .logo { width: 28px; height: 28px; display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
 .brand .logo div { background: #000; border-radius: 2px; }
 
+/* ---------- Buttons ---------- */
+/* .nav {
+  margin-top: 22px;
+  display: grid;
+  gap: 10px; 
+}
+*/
 .nav { display: grid; gap: 10px; margin-top: 6px; }
-
 .button {
   appearance: none;
   width: 100%;
@@ -119,40 +125,6 @@
   min-width: 1.4em; padding: 0 .4em; height: 1.6em;
   border: 1px solid var(--color-border); border-bottom-width: 2px;
   border-radius: 6px; font-size: 12px; background: var(--color-card);
-}
-
-/* ---------- Buttons ---------- */
-.nav {
-  margin-top: 22px;
-  display: grid;
-  gap: 10px;
-}
-
-.button {
-  appearance: none;
-  width: 100%;
-  padding: 10px 12px;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius);
-  font-weight: 600;
-  background: transparent;
-  color: var(--color-sidebar-foreground);
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.button:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.button.primary {
-  background: var(--color-primary);
-  color: var(--color-primary-foreground);
-  border: none;
-}
-
-.button.primary:hover {
-  filter: brightness(1.05);
 }
 
 /* ---------- Topbar ---------- */
@@ -179,17 +151,13 @@
   overflow-y: auto;        /* bisa discroll */
   padding: 16px 18px;
   padding-bottom: 120px;   /* ruang buat input bar */
-  scroll-behavior: smooth; /* scroll halus */
+  scroll-behavior: smooth; 
+
+  display: flex;              
+  flex-direction: column;
 }
 
 /* Message bubbles */
-/* .msg {
-  max-width: 80%;
-  line-height: 1.5;
-  padding: 12px 14px;
-  border-radius: var(--radius);
-} */
-
 .msg{
   max-width: 80%;
   line-height:1.5;
@@ -199,6 +167,11 @@
   background: var(--color-msg-assistant);
   color: var(--color-foreground);
   margin: 6px 0;
+
+    /* --- fix text panjang --- */
+  word-break: break-word;       /* potong kata panjang */
+  overflow-wrap: anywhere;      /* bisa patah di mana saja */
+  white-space: pre-wrap;
 }
 
 /* chat User */

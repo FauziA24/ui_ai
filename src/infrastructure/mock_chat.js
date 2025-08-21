@@ -9,7 +9,7 @@ const LOGISTICS_FACTS = [
 ];
 
 export class MockChatGateway extends ChatGateway {
-  async generateReply({ prompt, history = [] }) {
+  async generateReply() {
     // tiny artificial delay to feel real
     await new Promise((r) => setTimeout(r, 500));
 
@@ -18,15 +18,10 @@ export class MockChatGateway extends ChatGateway {
 
     // Cute, logistics‑flavored echo
     const content = [
-      `📦 **Loaded Prompt:** ${prompt}`,
-      "",
-      "🛳️ Routing through mock terminal... ✅",
-      "",
       `**AI Reply:** I hear you. Here\'s a stubbed response based on your prompt.`,
       "",
       `> Supply chain nugget: ${fact}`,
       "",
-      `History length: ${history.length}`,
     ].join("\n");
 
     return { role: ROLES.assistant, content };

@@ -7,10 +7,10 @@ import { sendMessage } from "../helpers/send_message.js";
 
 export default function ChatPage({ deps }) {
   const [messages, setMessages] = useState([
-    createMessage(
-      ROLES.assistant,
-      "🧭 **Welcome to LogistiChat!**\n\nAsk about routes, containers, lead times, or anything else. I'm a mock assistant right now — wire me to your backend when ready."
-    ),
+    // createMessage(
+    //   ROLES.assistant,
+    //   "**Welcome to LogistiChat!**\n\nAsk about routes, containers, lead times, or anything else. I'm a mock assistant right now — wire me to your backend when ready."
+    // ),
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
