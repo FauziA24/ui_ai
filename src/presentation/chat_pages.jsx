@@ -5,7 +5,7 @@ import Messages from "../helpers/messages.jsx";
 import { ROLES, createMessage } from "../helpers/entities.js";
 import { sendMessage } from "../helpers/send_message.js";
 
-export default function ChatPage({ deps }) {
+export default function ChatPage({ deps, input, setInput, response, sendPrompt }) {
   const [messages, setMessages] = useState([
     // createMessage(
     //   ROLES.assistant,
